@@ -8,27 +8,27 @@ const fingerJoints = {
 
 // Infinity Gauntlet Style
 const style = {
-	0: { color: "red", size: 6 },
-	1: { color: "red", size: 6 },
-	2: { color: "red", size: 6 },
-	3: { color: "red", size: 6 },
-	4: { color: "red", size: 6 },
-	5: { color: "red", size: 6 },
-	6: { color: "red", size: 6 },
-	7: { color: "red", size: 6 },
-	8: { color: "red", size: 6 },
-	9: { color: "red", size: 6 },
-	10: { color: "red", size: 6 },
-	11: { color: "red", size: 6 },
-	12: { color: "red", size: 6 },
-	13: { color: "red", size: 6 },
-	14: { color: "red", size: 6 },
-	15: { color: "red", size: 6 },
-	16: { color: "red", size: 6 },
-	17: { color: "red", size: 6 },
-	18: { color: "red", size: 6 },
-	19: { color: "red", size: 6 },
-	20: { color: "red", size: 6 },
+	0: { color: "cyan", size: 8 },
+	1: { color: "cyan", size: 8 },
+	2: { color: "cyan", size: 8 },
+	3: { color: "cyan", size: 8 },
+	4: { color: "cyan", size: 8 },
+	5: { color: "cyan", size: 8 },
+	6: { color: "cyan", size: 8 },
+	7: { color: "cyan", size: 8 },
+	8: { color: "cyan", size: 8 },
+	9: { color: "cyan", size: 8 },
+	10: { color: "cyan", size: 8 },
+	11: { color: "cyan", size: 8 },
+	12: { color: "cyan", size: 8 },
+	13: { color: "cyan", size: 8 },
+	14: { color: "cyan", size: 8 },
+	15: { color: "cyan", size: 8 },
+	16: { color: "cyan", size: 8 },
+	17: { color: "cyan", size: 8 },
+	18: { color: "cyan", size: 8 },
+	19: { color: "cyan", size: 8 },
+	20: { color: "cyan", size: 8 },
 };
 
 export const drawHand = (predictions, ctx) => {
@@ -50,7 +50,7 @@ export const drawHand = (predictions, ctx) => {
             landmarks[secondJointIndex][0],
             landmarks[secondJointIndex][1]
           );
-          ctx.strokeStyle = "plum";
+          ctx.strokeStyle = "white";
           ctx.lineWidth = 4;
           ctx.stroke();
         }
