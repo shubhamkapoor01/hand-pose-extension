@@ -1,8 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Webcam from 'react-webcam';
 import * as tf from '@tensorflow/tfjs';
 import * as handpose from '@tensorflow-models/handpose';
-import { drawHand } from './utilities';
+import * as fp from 'fingerpose';
+import { drawHand, getHandPose } from './utilities';
 
 function Model(props) {
 	const webcamRef = useRef(null);
@@ -33,7 +34,19 @@ function Model(props) {
 		canvasRef.current.height = videoHeight;
 
 		const hand = await cnn.estimateHands(video);
-		console.log(hand);
+
+		if (hand.length > 0) {
+			const ge = new fp.GestureEstimator([
+				fp.Gestures.VictoryGesture,
+				fp.Gestures.ThumbsUpGesture,
+			]);
+
+			const gesture = await ge.estimate(hand[0].landmarks, 8);
+
+			if (gesture.gestures.length > 0) {
+				props.setGestureState(getHandPose(gesture.poseData));
+			}
+		}
 
 		const ctx = canvasRef.current.getContext('2d');
 		drawHand(hand, ctx);
