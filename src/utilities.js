@@ -67,3 +67,57 @@ export const drawHand = (predictions, ctx) => {
     });
   }
 };
+
+export const getHandPose = (poseData) => {
+  console.log(poseData);
+
+  if ((poseData[1][1] === 'Full Curl' || poseData[1][1] === 'Half Curl') && 
+  (poseData[2][1] === 'Full Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'Full Curl' || poseData[3][1] === 'Half Curl') && 
+  (poseData[4][1] === 'Full Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'Full Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'zero';
+  }
+
+  if ((poseData[1][1] === 'No Curl' || poseData[1][1] === 'Half curl') && 
+  (poseData[2][1] === 'Full Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'Full Curl' || poseData[3][1] === 'Half Curl') &&
+  (poseData[4][1] === 'Full Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'Full Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'one';
+  }
+
+  if ((poseData[1][1] === 'No Curl' || poseData[1][1] === 'Half Curl') &&
+  (poseData[2][1] === 'No Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'Full Curl' || poseData[3][1] === 'Half Curl') &&
+  (poseData[4][1] === 'Full Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'Full Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'two';
+  }
+
+  if ((poseData[1][1] === 'No Curl' || poseData[1][1] === 'Half Curl') &&
+  (poseData[2][1] === 'No Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'No Curl' || poseData[3][1] === 'Half Curl') &&
+  (poseData[4][1] === 'Full Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'Full Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'three';
+  }
+
+  if ((poseData[1][1] === 'No Curl' || poseData[1][1] === 'Half Curl') &&
+  (poseData[2][1] === 'No Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'No Curl' || poseData[3][1] === 'Half Curl') &&
+  (poseData[4][1] === 'No Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'Full Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'four';
+  }
+
+  if ((poseData[1][1] === 'No Curl' || poseData[1][1] === 'Half Curl') &&  
+  (poseData[2][1] === 'No Curl' || poseData[2][1] === 'Half Curl') &&
+  (poseData[3][1] === 'No Curl' || poseData[3][1] === 'Half Curl') &&
+  (poseData[4][1] === 'No Curl' || poseData[4][1] === 'Half Curl') &&
+  (poseData[0][1] === 'No Curl' || poseData[0][1] === 'Half Curl')) {
+    return 'four';
+  }
+
+  return 'invalid';
+}
